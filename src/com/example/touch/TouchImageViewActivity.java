@@ -16,19 +16,19 @@ public class TouchImageViewActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
-        img = (TouchImageView) findViewById(R.id.snoop);
-        img.setImageResource(R.drawable.snoopy);
+        img = (TouchImageView) findViewById(R.id.touchImageView1);
+        img.setImageResource(R.drawable.water_drops_wallpaper);
         img.setMaxZoom(4f);
     }
     
-    public void printPinPosition(View view) {
+    public void displayPinPosition(View view) {
 		ZoomablePinView pin = img.getPin();
 		if (pin != null) {
 			PointF pinPos = pin.getPositionInPixels();
 			Toast.makeText(this, "pin position: " + pinPos.x + ", " + pinPos.y, Toast.LENGTH_SHORT).show();
 		}
 		else {
-			Toast.makeText(this, "no pin", Toast.LENGTH_SHORT).show();
+			Toast.makeText(this, "no pin selected", Toast.LENGTH_SHORT).show();
 		}
 	}
 }
