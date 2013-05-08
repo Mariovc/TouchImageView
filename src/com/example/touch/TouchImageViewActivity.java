@@ -8,20 +8,20 @@ import android.widget.Toast;
 
 
 public class TouchImageViewActivity extends Activity {
-    /** Called when the activity is first created. */
-    
+	/** Called when the activity is first created. */
+
 	private TouchImageView img;
-	
+
 	@Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.main);
-        img = (TouchImageView) findViewById(R.id.touchImageView1);
-        img.setImageResource(R.drawable.water_drops_wallpaper);
-        img.setMaxZoom(4f);
-    }
-    
-    public void displayPinPosition(View view) {
+	public void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.main);
+		img = (TouchImageView) findViewById(R.id.touchImageView1);
+		img.setImageResource(R.drawable.water_drops_wallpaper);
+		img.setMaxZoom(4f);
+	}
+
+	public void displayPinPosition(View view) {
 		ZoomablePinView pin = img.getPin();
 		if (pin != null) {
 			PointF pinPos = pin.getPositionInPixels();
@@ -30,5 +30,9 @@ public class TouchImageViewActivity extends Activity {
 		else {
 			Toast.makeText(this, "no pin selected", Toast.LENGTH_SHORT).show();
 		}
+	}
+
+	public void removePin (View view) {
+		img.removePin();
 	}
 }
